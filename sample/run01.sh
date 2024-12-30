@@ -1,0 +1,1 @@
+bash pipe/run_nextplosh2.sh WH001 128
