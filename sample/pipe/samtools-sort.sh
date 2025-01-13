@@ -7,5 +7,5 @@ if [ -z ${readID} ]; then
     exit 1
 fi
 
-samtools sort -o  result/${readID}.sorted.bam ${readID}.bam
+samtools sort -o  result/${readID}.sorted.bam result/${readID}.bam
 samtools index -c result/${readID}.sorted.bam
