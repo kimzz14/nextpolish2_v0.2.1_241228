@@ -1,6 +1,6 @@
 ############################################################################################
-readID=$1
-threadN=$2
+threadN=$1
+readID=$2
 ############################################################################################
 
 if [ -z ${readID} ]; then
@@ -13,10 +13,12 @@ if [ -z ${threadN} ]; then
     exit 1
 fi
 
-#bwa
-bash pipe/bwa-mem_T111.sh  ${threadN} ${readID}
-bash pipe/samtools-sort.sh ${threadN} ${readID}.bwa-memT111 bam
 bash pipe/nextplosh2.sh    ${threadN} ${readID}.bwa-memT05.sorted 
+
+#bwa
+#bash pipe/bwa-mem_T111.sh  ${threadN} ${readID}
+#bash pipe/samtools-sort.sh ${threadN} ${readID}.bwa-memT111 bam
+#bash pipe/nextplosh2.sh    ${threadN} ${readID}.bwa-memT05.sorted 
 
 #winnowmap
 #bash pipe/winnowmap-T111.sh ${threadN} ${readID}
