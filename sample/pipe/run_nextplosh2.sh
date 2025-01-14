@@ -14,14 +14,14 @@ if [ -z ${threadN} ]; then
 fi
 
 #bwa
-bash pipe/bwa-mem_T05.sh ${readID} ${threadN}
-bash pipe/samtools-sort.sh  ${readID}.bwa-memT05
-bash pipe/nnextplosh2.sh    ${readID}.bwa-memT05.sorted ${threadN}
+bash pipe/bwa-mem_T111.sh  ${threadN} ${readID}
+bash pipe/samtools-sort.sh ${threadN} ${readID}.bwa-memT111 bam
+bash pipe/nextplosh2.sh    ${threadN} ${readID}.bwa-memT05.sorted 
 
 #winnowmap
-#bash pipe/winnowmap-T01.sh ${readID} ${threadN}
-#bash pipe/nnextplosh2.sh   ${readID}.winnowmap-T01.sorted ${threadN}
+#bash pipe/winnowmap-T111.sh ${threadN} ${readID}
+#bash pipe/nnextplosh2.sh    ${threadN} ${readID}.winnowmap-T111.sorted
 
 #minimap2
-#bash pipe/minimap2-T01.sh  ${readID} ${threadN}
-#bash pipe/nnextplosh2.sh   ${readID}.minimap2-T01.sorted ${threadN}
+#bash pipe/minimap2-T01.sh  ${threadN} ${readID}
+#bash pipe/nnextplosh2.sh   ${threadN} ${readID}.minimap2-T111.sorted
